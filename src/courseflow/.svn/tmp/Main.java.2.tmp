@@ -1,0 +1,80 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package courseflow;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Writer;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Pooya
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException, Exception {
+
+<<<<<<< .mine
+//        Download download = new Download();
+//        download.convert();
+=======
+        //Download download = new Download();
+        //download.convert();
+>>>>>>> .r542
+
+        UI ui = new UI();
+
+        ui.mainMenu();
+
+//        ModelManagement mm = ModelManagement.instance();
+//        mm.setProgram(1);
+//        mm.processCourseCalendarAndCatalogue();
+//
+//        CoursesFlowChart flowchart = new CoursesFlowChart(new Program(1));
+//        flowchart.setAllSemestersHashtable(mm.getHashSemesterCourse(1));
+//        flowchart.Draw1();
+//
+//
+//        System.out.println(mm.getHashSemesterCourse(1).get(8).get(0).getPrereq());
+
+        //Pooya!!!
+
+
+//        CoursesFlowChart chart = new CoursesFlowChart(courses);
+//        chart.Draw();
+//        c.convertESEv1URL();
+
+        //CatalogueParser parser = new CatalogueParser();
+        //parser.findLogic("***Prerequisite: MATH 105 or 110.*** ");
+        //parser.findLogic("*** Prerequisite: A grade of at least 60% in either MATH 105 or 110. ***");
+
+        //System.out.println(parser.getCoursePrereqPhrase("*** Prerequisite: ENPE 241 *** *** Corequisite: ENPE 460 ***"));
+        //parser.findLogic("***Prerequisite: ENPE 241, ENPE 251, ENPE 300, ENPE 302, and ENPE 370. Concurrent enrolment allowed in ENPE 302 and 370.***");
+        //parser.findLogic("***Prerequisite: PHYS 111 or 112 or 119 or 129, and MATH 213. MATH 213 and PHYS 129 may be taken concurrently.***");
+        //parser.parse();
+        //parser.convertPDFtoText("0910UGCourseCatalog.pdf");
+        //parser.findLogic("*** Prerequisite: CHEM 102 ***");
+        // parser.findLogic("*** Prerequisite: MATH 103 or 110, and MATH 122 with grades of at least 60% ***");
+        //parser.findLogic("*** Prerequisite: CS 201 and ENEL 384 ***");
+//        parser.findLogic("*** Prerequisite: ENEV 261, 334, and CS 110 ***");
+//        parser.findLogic("*** Prerequisite: MATH 111 and PHYS 119 ***");
+//        parser.findLogic("*** Prerequisite: One of ENEL 400, ENEV 400, ENIN 400, ENPE 400, or ENSE 400 ***");
+        //     parser.findLogic("*** Prerequisite: PHYS 111 or 119, and MATH 213. Math 213 may be taken concurrently. ***");
+
+//        parser.findLogic("*** Prerequisite: PR 030 and PR 032 or PR 033 ***");
+//        parser.findLogic("*** Prerequisite: FR 370 or permission of Department Head ***");
+        //from the older one
+        //     parser.findLogic("*** Prerequisite: One course from ANTH 100, GEOG 100, HIST 100, INDG 101, PSCI 100, or SOC 100. ***");
+        //parser.findLogic("*** Prerequisite: MATH 105 or 110 (may be taken concurrently) plus CS 110\n with a minimum grade of 65%. ***");
+    }
+}

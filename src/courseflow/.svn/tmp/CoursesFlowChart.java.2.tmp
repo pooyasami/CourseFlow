@@ -1,0 +1,226 @@
+/*
+ * CoursesFlowChart.java
+ *
+ * Copyright(c) 2011 Pooya Samizadeh-Yazd and Yuan Zhou All Rights Reserved.
+ *
+ */
+package courseflow;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+/**
+ *
+ * @author Pooya Samizadeh-Yazd
+ */
+public class CoursesFlowChart {
+
+    private Program program;
+    private ArrayList<Course> courses;
+    private Hashtable<Integer, ArrayList<Course>> allSemestersHashMap;
+
+    public CoursesFlowChart(Program program) {
+        this.program = program;
+
+    }
+
+    public CoursesFlowChart(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Hashtable<Integer, ArrayList<Course>> getAllSemestersHashtable() {
+        return allSemestersHashMap;
+    }
+
+    public void setAllSemestersHashtable(Hashtable<Integer, ArrayList<Course>> allSemestersHashtable) {
+        this.allSemestersHashMap = allSemestersHashtable;
+    }
+
+    /**
+     * This method is for generating the dot file. it uses other sub methods
+     * to get the results and inserts it into a file called generated-dot-file.txt
+     * @throws IOException
+     */
+    public void Draw1() throws IOException {
+
+        File file = new File("generated-dot-file.txt");
+        BufferedWriter bwriter = new BufferedWriter(new FileWriter(file));
+        bwriter.write("digraph CourseFlowChart {");
+        for (int i = 1; i < 9; i++) {
+            bwriter.write("\"Semester" + Integer.toString(i) + "\"->\"" + "Semester" + Integer.toString(i + 1) + "\";");
+        }
+
+        for (int i = 1; i < 10; i++) {
+
+            ArrayList<Course> currentIterationCourses = allSemestersHashMap.get(i);
+            Iterator iterator = currentIterationCourses.iterator();
+            while (iterator.hasNext()) {
+                Course courseUnderIteration = (Course) iterator.next();
+
+                bwriter.write("\"" + courseUnderIteration.getCourseNum() + "\";");
+                bwriter.write(makeCorequisiteGraphScriptForCourse(courseUnderIteration));
+                bwriter.write(makePrerequisiteGraphScriptForCourse(courseUnderIteration));
+                bwriter.write("{rank = same; \"Semester" + Integer.toString(i) + "\";\""
+                        + courseUnderIteration.getCourseNum() + "\";}");
+                bwriter.newLine();
+            }
+        }
+
+        bwriter.write("}");
+        bwriter.close();
+
+    }
+
+    /**
+     * This is the deprecated method for generating the dot file
+     * @throws IOException
+     */
+    public void Draw() throws IOException {
+
+
+        //Pooya~!~~~
+        //This is where you code the generated digraph.....
+
+
+        //Please draw the chart according to  ArrayList<Course> courses
+        //later, I'll change it to using Program program
+        System.out.println("\n");
+        System.out.println("Please work here.....\nClass CoursesFlowChart\nPooya!!!!!!");
+
+        // CREATING the output.txt file which contains the information for generating the graph
+        if (!courses.isEmpty()) {
+            Iterator iterator = courses.iterator();
+            File outputFile = new File("output.txt");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+            bw.write("digraph a {");
+            while (iterator.hasNext()) {
+                Course currentCourse = (Course) iterator.next();
+                bw.write("\"" + currentCourse.getCourseNum() + "\"" + ";");
+                bw.write(makePrerequisiteGraphScriptForCourse(currentCourse));
+                //bw.write(makeCorequisiteGraphScriptForCourse(currentCourse));
+            }
+            bw.write("}");
+            bw.close();
+        }
+        try {
+            Runtime.getRuntime().exec("/usr/local/bin/dot -Tpng -O output.txt");
+            //Runtime.getRuntime().exec("C:/Users/Daphne Z/Downloads/graphviz-bin-2.27.20110306.0545/release/bin -Tpng -O output.txt");
+        } catch (IOException ex) {
+            System.out.println("The location of GraphViz should be specified in the CoursesFlowChart,"
+                    + "it might be different in windows or mac.");
+        }
+    }
+
+    private int programNum;
+    public void setProgramNum(int programnum){
+        programNum = programnum;
+
+    }
+    public int getProgramNum(){
+        return programNum;
+    }
+    /**
+     * It generates the prerequisite dot context for the given course
+     * @param course the given course
+     * @return a dot formatted string
+     */
+    public String makePrerequisiteGraphScriptForCourse(Course course) {
+        Iterator iterator1 = course.getPrereq().iterator();
+        Iterator iterator2 = course.getPrereqOr().iterator();
+        Iterator iterator3 = course.getPrereqAnd().iterator();
+
+        String result = new String();
+
+        while(iterator1.hasNext()){
+            Course preReq = (Course) iterator1.next();
+            ArrayList<Integer> num = preReq.getProgramNums();
+
+            for(int i =0; i< num.size(); i++){
+                int pInt = (Integer)num.get(i);
+                if(pInt == programNum){
+                    result = result + "\"" + preReq.getCourseNum() + "\"" + "->" + "\"" + course.getCourseNum() + "\";\n";
+                }
+            }
+        }
+
+        while(iterator2.hasNext()){
+            Course preReq = (Course) iterator2.next();
+            ArrayList<Integer> num = preReq.getProgramNums();
+
+            for(int i =0; i< num.size(); i++){
+                int pInt = (Integer)num.get(i);
+                if(pInt == programNum){
+                    result = result + "\"" + preReq.getCourseNum() + "\"" + "->" + "\"" + course.getCourseNum() + "\";\n";
+                }
+            }
+        }
+
+        while(iterator3.hasNext()){
+            Course preReq = (Course) iterator3.next();
+            ArrayList<Integer> num = preReq.getProgramNums();
+
+            for(int i =0; i< num.size(); i++){
+                int pInt = (Integer)num.get(i);
+                if(pInt == programNum){
+                    result = result + "\"" + preReq.getCourseNum() + "\"" + "->" + "\"" + course.getCourseNum() + "\";\n";
+                }
+            }
+        }
+
+        return result;
+
+
+
+
+        /*Iterator iterator = course.getPrereq().iterator();
+        String result = new String();
+        while (iterator.hasNext()) {
+            Course preReq = (Course) iterator.next();
+            //System.out.println(preReq.getCourseNum() + "->" + course.getCourseNum() + ";");
+            result = result + "\"" + preReq.getCourseNum() + "\"" + "->" + "\"" + course.getCourseNum() + "\";\n";
+        }
+        return result;*/
+    }
+
+    /**
+     * It generates the corequisite dot context for the given course
+     * @param course the given course
+     * @return a dot formatted string
+     */
+    public String makeCorequisiteGraphScriptForCourse(Course course) {
+        //System.out.println(course.getPrereq());
+        Iterator iterator = course.getCoreq().iterator();
+        String result = new String();
+        while (iterator.hasNext()) {
+            Course coReq = (Course) iterator.next();
+            //System.out.println(preReq.getCourseNum() + "->" + course.getCourseNum() + ";");
+            result = result + "\"" + coReq.getCourseNum() + "\"" + "->" + "\"" + course.getCourseNum() + "\"[style=dotted];\n";
+        }
+        return result;
+    }
+
+    /**
+     * This method generates the dot syntax for the proper ranks in the dot file
+     * it puts the courses in the proper ranks so the graph becomes separated
+     * for different semesters
+     * @return
+     */
+    public String makeRanksForCourses() {
+        String result = new String();
+        for (int i = 1; i < 10; i++) {
+            Iterator iterator = allSemestersHashMap.get(i).iterator();
+            while (iterator.hasNext()) {
+                Course temp = (Course) iterator.next();
+                result = result + "{rank = same; \"" + i + "\";\"" + temp.getCourseNum() + "\";}";
+            }
+        }
+
+        return result;
+    }
+}

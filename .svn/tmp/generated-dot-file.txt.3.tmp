@@ -1,0 +1,186 @@
+digraph CourseFlowChart {"Semester1"->"Semester2";"Semester2"->"Semester3";"Semester3"->"Semester4";"Semester4"->"Semester5";"Semester5"->"Semester6";"Semester6"->"Semester7";"Semester7"->"Semester8";"Semester8"->"Semester9";"CHEM 104";{rank = same; "Semester1";"CHEM 104";}
+"ENGG 123";{rank = same; "Semester1";"ENGG 123";}
+"MATH 122";{rank = same; "Semester1";"MATH 122";}
+"PHYS 109";{rank = same; "Semester1";"PHYS 109";}
+"MATH 110";{rank = same; "Semester1";"MATH 110";}
+"CS 110";{rank = same; "Semester2";"CS 110";}
+"ENGG 100";"ENGG 123"->"ENGG 100";
+{rank = same; "Semester2";"ENGG 100";}
+"ENGL 100";{rank = same; "Semester2";"ENGL 100";}
+"MATH 111";"MATH 110"->"MATH 111";
+{rank = same; "Semester2";"MATH 111";}
+"PHYS 119";"PHYS 109"->"PHYS 119";
+<<<<<<< .mine
+{rank = same; "Semester2";"PHYS 119";}
+=======
+{rank = same; "Semester2";"PHYS 119";}
+"PHYS 201";"PHYS 119"->"PHYS 201";
+"MATH 213"->"PHYS 201";
+{rank = same; "Semester3";"PHYS 201";}
+"CS 115";"MATH 110"->"CS 115";
+"CS 110"->"CS 115";
+{rank = same; "Semester3";"CS 115";}
+>>>>>>> .r604
+"ENEL 280";"PHYS 119"->"ENEL 280";
+"MATH 111"->"ENEL 280";
+<<<<<<< .mine
+{rank = same; "Semester3";"ENEL 280";}
+"ENEV 223";"ENGG 123"->"ENEV 223";
+{rank = same; "Semester3";"ENEV 223";}
+=======
+{rank = same; "Semester3";"ENEL 280";}
+"MATH 213";"MATH 122"->"MATH 213";
+"MATH 111"->"MATH 213";
+{rank = same; "Semester3";"MATH 213";}
+>>>>>>> .r604
+"ENGG 240";"MATH 111"->"ENGG 240";
+"PHYS 119"->"ENGG 240";
+<<<<<<< .mine
+{rank = same; "Semester3";"ENGG 240";}
+"MATH 213";"MATH 122"->"MATH 213";
+"MATH 111"->"MATH 213";
+{rank = same; "Semester3";"MATH 213";}
+=======
+{rank = same; "Semester3";"ENGG 240";}
+"CS 210";"MATH 110"->"CS 210";
+"CS 115"->"CS 210";
+{rank = same; "Semester4";"CS 210";}
+"ENEL 282";"PHYS 119"->"ENEL 282";
+"MATH 111"->"ENEL 282";
+"ENEL 280"->"ENEL 282";
+{rank = same; "Semester4";"ENEL 282";}
+>>>>>>> .r604
+"ENIN 233";"MATH 217"->"ENIN 233";
+<<<<<<< .mine
+{rank = same; "Semester4";"ENIN 233";}
+"ENIN 241";"ENGG 240"->"ENIN 241";
+"MATH 110"->"ENIN 241";
+{rank = same; "Semester4";"ENIN 241";}
+=======
+{rank = same; "Semester4";"ENIN 233";}
+>>>>>>> .r604
+"MATH 217";"MATH 111"->"MATH 217";
+"MATH 122"->"MATH 217";
+<<<<<<< .mine
+{rank = same; "Semester4";"MATH 217";}
+"STAT 160";{rank = same; "Semester4";"STAT 160";}
+"CHEM 140";"CHEM 104"->"CHEM 140";
+{rank = same; "Semester5";"CHEM 140";}
+"ENEV 261";"ENGG 240"->"ENEV 261";
+"PHYS 109"->"ENEV 261";
+{rank = same; "Semester5";"ENEV 261";}
+"ENIN 331";"ENIN 233"->"ENIN 331";
+{rank = same; "Semester5";"ENIN 331";}
+"ENIN 343";"ENIN 241"->"ENIN 343";
+{rank = same; "Semester5";"ENIN 343";}
+"ENIN 331";"ENIN 233"->"ENIN 331";
+{rank = same; "Semester5";"ENIN 331";}
+"ENIN 343";"ENIN 241"->"ENIN 343";
+{rank = same; "Semester5";"ENIN 343";}
+"ENGG 330";"ENIN 233"->"ENGG 330";
+{rank = same; "Semester5";"ENGG 330";}
+=======
+{rank = same; "Semester4";"MATH 217";}
+"STAT 160";{rank = same; "Semester4";"STAT 160";}
+"CS 215";"CS 210"->"CS 215";
+{rank = same; "Semester5";"CS 215";}
+"CS 201";"CS 110"->"CS 201";
+{rank = same; "Semester5";"CS 201";}
+"ENEL 283";"ENEL 282"->"ENEL 283";
+"ENEL 280"->"ENEL 283";
+{rank = same; "Semester5";"ENEL 283";}
+"ENEL 384";"ENEL 282"->"ENEL 384";
+{rank = same; "Semester5";"ENEL 384";}
+"ENEV 223";"ENGG 123"->"ENEV 223";
+{rank = same; "Semester5";"ENEV 223";}
+>>>>>>> .r604
+"BUS 260";"ENGL 100"->"BUS 260";
+<<<<<<< .mine
+{rank = same; "Semester6";"BUS 260";}
+"ECON 201";{rank = same; "Semester6";"ECON 201";}
+=======
+{rank = same; "Semester6";"BUS 260";}
+"CS 372";"CS 215"->"CS 372";
+{rank = same; "Semester6";"CS 372";}
+"ECON 201";{rank = same; "Semester6";"ECON 201";}
+>>>>>>> .r604
+"ENEL 380";"ENIN 233"->"ENEL 380";
+<<<<<<< .mine
+{rank = same; "Semester6";"ENEL 380";}
+"ECON 201";{rank = same; "Semester6";"ECON 201";}
+"ENEL 380";"ENIN 233"->"ENEL 380";
+{rank = same; "Semester6";"ENEL 380";}
+"ENIN 253";"MATH 213"->"ENIN 253";
+{rank = same; "Semester6";"ENIN 253";}
+"ENIN 350";"ENIN 253"->"ENIN 350";
+{rank = same; "Semester6";"ENIN 350";}
+"ENIN 370";"ENEL 280"->"ENIN 370";
+"ENIN 233"->"ENIN 370";
+{rank = same; "Semester7";"ENIN 370";}
+"ENIN 430";"BUS 260"->"ENIN 430";
+{rank = same; "Semester7";"ENIN 430";}
+"ENIN 440";{rank = same; "Semester7";"ENIN 440";}
+"ENIN 453";"ENIN 253"->"ENIN 453";
+"ENEV 261"->"ENIN 453";
+{rank = same; "Semester7";"ENIN 453";}
+"ENIN 400";"ENIN 453"->"ENIN 400";
+{rank = same; "Semester8";"ENIN 400";}
+"BUS 250";{rank = same; "Semester8";"BUS 250";}
+"ENIN 340";"ENIN 233"->"ENIN 340";
+{rank = same; "Semester8";"ENIN 340";}
+"ENIN 444";"ENIN 370"->"ENIN 444";
+"CS 110"->"ENIN 444";
+{rank = same; "Semester8";"ENIN 444";}
+=======
+{rank = same; "Semester6";"ENEL 380";}
+"ENEL 390";"ENEL 283"->"ENEL 390";
+"MATH 217"->"ENEL 390";
+{rank = same; "Semester6";"ENEL 390";}
+"ENSE 350";"MATH 110"->"ENSE 350";
+"MATH 122"->"ENSE 350";
+"CS 210"->"ENSE 350";
+{rank = same; "Semester7";"ENSE 350";}
+"ENEL 387";"CS 201"->"ENEL 387";
+"ENEL 384"->"ENEL 387";
+{rank = same; "Semester7";"ENEL 387";}
+"ENSE 400";"ENEL 390"->"ENSE 400";
+"ENEL 380"->"ENSE 400";
+"ENEL 387"->"ENSE 400";
+{rank = same; "Semester8";"ENSE 400";}
+>>>>>>> .r604
+"ENGG 303";"STAT 160"->"ENGG 303";
+"ECON 201"->"ENGG 303";
+<<<<<<< .mine
+{rank = same; "Semester8";"ENGG 303";}
+"ENIN 349";"ENIN 241"->"ENIN 349";
+{rank = same; "Semester8";"ENIN 349";}
+"BUS 210";"BUS 260"->"BUS 210";
+{rank = same; "Semester9";"BUS 210";}
+"ENGG 401";"ENIN 400"->"ENGG 401";
+{rank = same; "Semester9";"ENGG 401";}
+"ENIN 413";"ENIN 400"->"ENIN 413";
+{rank = same; "Semester9";"ENIN 413";}
+"ENIN 433";"MATH 217"->"ENIN 433";
+{rank = same; "Semester9";"ENIN 433";}
+}
+=======
+{rank = same; "Semester8";"ENGG 303";}
+"ENSE 472";"CS 215"->"ENSE 472";
+{rank = same; "Semester8";"ENSE 472";}
+"ENSE 474";"CS 215"->"ENSE 474";
+"CS 372"->"ENSE 474";
+{rank = same; "Semester8";"ENSE 474";}
+"BUS 250";{rank = same; "Semester8";"BUS 250";}
+"ENGG 401";"ENSE 400"->"ENGG 401";
+{rank = same; "Semester9";"ENGG 401";}
+"ENSE 470";"CS 215"->"ENSE 470";
+"CS 372"->"ENSE 470";
+{rank = same; "Semester9";"ENSE 470";}
+"ENSE 475";"CS 215"->"ENSE 475";
+"CS 372"->"ENSE 475";
+{rank = same; "Semester9";"ENSE 475";}
+"ENSE 477";"CS 372"->"ENSE 477";
+"ENEL 387"->"ENSE 477";
+"ENSE 400"->"ENSE 477";
+{rank = same; "Semester9";"ENSE 477";}
+}>>>>>>> .r604
